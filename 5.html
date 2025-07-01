@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Hub - RRR</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for the Inter font and general body styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text color */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            margin: 0;
+            padding: 0;
+        }
+        /* Video container styling for positioning play button and spinner */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width * 100%) */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.75rem; /* Rounded corners for the container */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+        }
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 0.75rem; /* Rounded corners for the video player */
+        }
+        /* Play button overlay */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(220, 38, 38, 0.8); /* Red with transparency */
+            border-radius: 9999px; /* Fully rounded */
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 10; /* Above video */
+        }
+        .play-button:hover {
+            background-color: rgba(220, 38, 38, 1); /* Solid red on hover */
+        }
+        .play-button svg {
+            fill: white;
+            width: 3rem;
+            height: 3rem;
+        }
+        /* Loading spinner */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #dc2626; /* Red spinner */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+        @keyframes spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        /* Ensure the main content area grows to fill available space */
+        main {
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header Section -->
+    <header class="bg-gray-800 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-red-500">Movie Hub</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Movies</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">TV Shows</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container mx-auto p-6 flex flex-col items-center justify-center">
+        <div class="bg-gray-800 rounded-xl shadow-2xl p-8 max-w-4xl w-full">
+            <h2 class="text-4xl font-extrabold text-white mb-6 text-center">RRR</h2>
+
+            <!-- Video Player Section -->
+            <div class="mb-8 w-full">
+                <div class="video-container">
+                    <video id="fafd" controls>
+                        <source src="https://web.wootly.ch/source?id=d5f5133e50839a83ded1463b1479104c82d9b303&amp;sig=XMJgxisS_OHJDMbUmNyz2g&amp;expire=1751406278&amp;ofs=11&amp;usr=166643" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <!-- Play Button Overlay -->
+                    <div id="playButton" class="play-button">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                    </div>
+                    <!-- Loading Spinner -->
+                    <div id="loadingSpinner" class="spinner hidden"></div>
+                </div>
+                <!-- Error Message Display -->
+                <p id="videoErrorMessage" class="text-red-500 mt-4 text-center hidden"></p>
+            </div>
+
+            <!-- Movie Details Section -->
+            <div class="text-lg leading-relaxed">
+                <p class="mb-4">
+                    <strong class="text-red-400">Synopsis:</strong> A fictitious story about two legendary revolutionaries and their journey away from home before they started fighting for their country in the 1920s.
+                </p>
+                <p class="mb-4">
+                    <strong class="text-red-400">Director:</strong> S. S. Rajamouli
+                </p>
+                <p class="mb-4">
+                    <strong class="text-red-400">Starring:</strong> N. T. Rama Rao Jr., Ram Charan, Alia Bhatt, Ajay Devgn
+                </p>
+                <p class="mb-4">
+                    <strong class="text-red-400">Genre:</strong> Action, Drama, Period
+                </p>
+                <p class="mb-4">
+                    <strong class="text-red-400">Release Date:</strong> March 25, 2022
+                </p>
+                <p class="mb-4">
+                    <strong class="text-red-400">Rating:</strong> ⭐⭐⭐⭐⭐ (5/5)
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 p-4 text-center text-gray-500 text-sm mt-8">
+        <p>&copy; 2025 Movie Hub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const videoElement = document.getElementById('fafd');
+            const playButton = document.getElementById('playButton');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const videoErrorMessage = document.getElementById('videoErrorMessage');
+
+            // Function to show error message
+            const showErrorMessage = (message) => {
+                videoErrorMessage.textContent = message;
+                videoErrorMessage.classList.remove('hidden');
+            };
+
+            // Function to hide error message
+            const hideErrorMessage = () => {
+                videoErrorMessage.classList.add('hidden');
+            };
+
+            // Show play button initially
+            playButton.classList.remove('hidden');
+
+            // Handle play button click
+            playButton.addEventListener('click', () => {
+                videoElement.play().then(() => {
+                    playButton.classList.add('hidden'); // Hide play button on successful play
+                    hideErrorMessage(); // Hide any previous error messages
+                }).catch(error => {
+                    console.error('Error attempting to play video:', error);
+                    showErrorMessage('Could not start video. Please try clicking again or check your browser settings.');
+                    playButton.classList.remove('hidden'); // Keep play button visible if play fails
+                });
+            });
+
+            // Event listeners for video state
+            videoElement.addEventListener('play', () => {
+                playButton.classList.add('hidden');
+                loadingSpinner.classList.add('hidden');
+                hideErrorMessage();
+            });
+
+            videoElement.addEventListener('pause', () => {
+                playButton.classList.remove('hidden');
+                loadingSpinner.classList.add('hidden');
+            });
+
+            videoElement.addEventListener('ended', () => {
+                playButton.classList.remove('hidden');
+                loadingSpinner.classList.add('hidden');
+            });
+
+            videoElement.addEventListener('waiting', () => {
+                loadingSpinner.classList.remove('hidden');
+            });
+
+            videoElement.addEventListener('playing', () => {
+                loadingSpinner.classList.add('hidden');
+            });
+
+            videoElement.addEventListener('error', (e) => {
+                console.error('Error playing video:', e);
+                loadingSpinner.classList.add('hidden');
+                playButton.classList.remove('hidden'); // Show play button again
+                let message = 'An error occurred while loading the video.';
+                if (videoElement.error) {
+                    switch (videoElement.error.code) {
+                        case videoElement.error.MEDIA_ERR_ABORTED:
+                            message = 'Video playback aborted.';
+                            break;
+                        case videoElement.error.MEDIA_ERR_NETWORK:
+                            message = 'Network error: Video download failed.';
+                            break;
+                        case videoElement.error.MEDIA_ERR_DECODE:
+                            message = 'Video decoding error. The video format might not be supported.';
+                            break;
+                        case videoElement.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
+                            message = 'Video source not supported or found.';
+                            break;
+                        default:
+                            message = 'An unknown video error occurred.';
+                            break;
+                    }
+                }
+                showErrorMessage(message + ' Please try again later.');
+            });
+
+            // Optional: Log when video is ready to play
+            videoElement.addEventListener('canplaythrough', () => {
+                console.log('Video is ready to play!');
+                // If the video can play, but hasn't started, ensure play button is visible
+                if (videoElement.paused) {
+                    playButton.classList.remove('hidden');
+                }
+                loadingSpinner.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
