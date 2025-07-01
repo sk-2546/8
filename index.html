@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhool Bhulaiyaa 3 - Watch Now</title>
+    <title>Shubham movie</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -38,6 +38,25 @@
             height: 100%;
             border: 0;
         }
+        .movie-card {
+            background-color: #2d3748; /* Darker gray for cards */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            transition: transform 0.2s ease-in-out;
+        }
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+        .movie-card img {
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        /* Initially hide the movie player section */
+        #moviePlayerSection {
+            display: none;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -45,7 +64,7 @@
     <header class="bg-gray-800 py-4 shadow-lg">
         <div class="container flex flex-col sm:flex-row justify-between items-center">
             <h1 class="text-3xl font-bold text-white mb-2 sm:mb-0">
-                Bhool Bhulaiyaa 3
+                Shubham movie
             </h1>
             <nav>
                 <ul class="flex space-x-4">
@@ -61,35 +80,42 @@
     <!-- Main Content Section -->
     <main class="flex-grow py-8">
         <div class="container">
-            <section class="mb-8">
-                <h2 class="text-4xl font-extrabold text-center text-white mb-6">Watch Bhool Bhulaiyaa 3 Now!</h2>
+            <!-- Movie Player Section (Initially hidden) -->
+            <section id="moviePlayerSection" class="mb-8">
+                <button id="backToMoviesBtn" class="mb-4 px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-full transition duration-300">
+                    &larr; सभी फिल्में देखें
+                </button>
+                <h2 id="moviePlayerTitle" class="text-4xl font-extrabold text-center text-white mb-6"></h2>
                 <div class="movie-player-container">
-                    <!-- Movie Player Iframe -->
-                    <iframe src="https://www.2embed.cc/embed/tt26932223" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    <!-- Movie Player Iframe - src will be set by JavaScript -->
+                    <iframe id="movieIframe" src="" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
-                <div class="mt-8 p-6 bg-gray-800 rounded-xl shadow-lg">
-                    <h3 class="text-2xl font-semibold text-white mb-4">About the Movie</h3>
-                    <p class="text-gray-300 leading-relaxed">
-                        Bhool Bhulaiyaa 3 is the highly anticipated third installment in the popular horror-comedy franchise.
-                        Directed by Anees Bazmee, the film promises to deliver a blend of spine-chilling moments and
-                        hilarious comedy, following the legacy of its predecessors. With a stellar cast and an intriguing
-                        plot, this movie is set to be a blockbuster. Get ready for more mystery, laughter, and scares!
-                    </p>
-                    <p class="text-gray-300 leading-relaxed mt-4">
-                        Starring Kartik Aaryan, Vidya Balan, and Triptii Dimri, the film continues the story with new twists
-                        and turns, bringing back beloved characters and introducing new ones. Don't miss out on the thrill!
-                    </p>
+                <div id="movieAboutSection" class="mt-8 p-6 bg-gray-800 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">फिल्म के बारे में</h3>
+                    <p id="movieAboutContent" class="text-gray-300 leading-relaxed"></p>
                 </div>
             </section>
 
-            <section class="mb-8 p-6 bg-gray-800 rounded-xl shadow-lg">
-                <h3 class="text-2xl font-semibold text-white mb-4">Latest News & Updates</h3>
-                <ul class="list-disc list-inside text-gray-300 space-y-2">
-                    <li>Filming for Bhool Bhulaiyaa 3 has officially wrapped up!</li>
-                    <li>The first look poster released, generating massive buzz.</li>
-                    <li>Soundtrack details to be announced soon.</li>
-                    <li>Anticipated release date: Diwali 2025.</li>
-                </ul>
+            <!-- All Movies List Section (Visible by default) -->
+            <section id="allMoviesSection" class="mb-8 p-6 bg-gray-800 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-semibold text-white mb-6 text-center">सभी फिल्में</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+                    <!-- Bhool Bhulaiyaa 3 Movie Card -->
+                    <div class="movie-card">
+                        <img src="https://placehold.co/300x450/800080/ffffff?text=Bhool+Bhulaiyaa+3" alt="Bhool Bhulaiyaa 3 Poster" class="w-full h-auto rounded-lg mx-auto">
+                        <h4 class="text-xl font-semibold text-white mt-2">भूल भुलैया 3</h4>
+                        <p class="text-gray-400 text-sm">शैली: हॉरर, कॉमेडी</p>
+                        <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300" data-movie-id="bhoolBhulaiyaa3">देखें</button>
+                    </div>
+
+                    <!-- Mrs. Movie Card -->
+                    <div class="movie-card">
+                        <img src="https://placehold.co/300x450/4CAF50/ffffff?text=Mrs." alt="Mrs. Movie Poster" class="w-full h-auto rounded-lg mx-auto">
+                        <h4 class="text-xl font-semibold text-white mt-2">मिसेज</h4>
+                        <p class="text-gray-400 text-sm">शैली: ड्रामा</p>
+                        <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300" data-movie-id="mrs">देखें</button>
+                    </div>
+                </div>
             </section>
         </div>
     </main>
@@ -97,17 +123,77 @@
     <!-- Footer Section -->
     <footer class="bg-gray-900 py-6 mt-auto shadow-inner">
         <div class="container text-center text-gray-400">
-            <p>&copy; 2025 Bhool Bhulaiyaa 3 Fan Page. All rights reserved.</p>
+            <p>&copy; 2025 Shubham movie Fan Page. All rights reserved.</p>
             <p class="mt-2">Disclaimer: This site is for entertainment purposes only. The movie content is embedded from external sources.</p>
         </div>
     </footer>
 
     <script>
-        // Basic JavaScript for any future interactive elements.
-        // Currently, no complex JS is needed for this static page with an iframe.
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('Bhool Bhulaiyaa 3 website loaded!');
-            // Example: You could add a simple scroll-to-top button or a dynamic date here.
+            const moviePlayerSection = document.getElementById('moviePlayerSection');
+            const allMoviesSection = document.getElementById('allMoviesSection');
+            const movieIframe = document.getElementById('movieIframe');
+            const moviePlayerTitle = document.getElementById('moviePlayerTitle');
+            const movieAboutContent = document.getElementById('movieAboutContent');
+            const backToMoviesBtn = document.getElementById('backToMoviesBtn');
+
+            // Define movie data
+            const movies = {
+                bhoolBhulaiyaa3: {
+                    title: 'भूल भुलैया 3 देखें!',
+                    iframeSrc: 'https://www.2embed.cc/embed/tt26932223',
+                    about: `भूल भुलैया 3 लोकप्रिय हॉरर-कॉमेडी फ्रेंचाइजी की बहुप्रतीक्षित तीसरी किस्त है। अनीस बज्मी द्वारा निर्देशित, यह फिल्म अपने पूर्ववर्तियों की विरासत का पालन करते हुए, रोंगटे खड़े कर देने वाले पलों और प्रफुल्लित करने वाली कॉमेडी का मिश्रण प्रदान करने का वादा करती है। एक शानदार कलाकारों और एक दिलचस्प कथानक के साथ, यह फिल्म एक ब्लॉकबस्टर बनने वाली है। अधिक रहस्य, हंसी और डरावने दृश्यों के लिए तैयार हो जाइए!
+                            <br><br>
+                            कार्तिक आर्यन, विद्या बालन और तृप्ति डिमरी अभिनीत, यह फिल्म नई ट्विस्ट और टर्न के साथ कहानी को जारी रखती है, जिसमें प्रिय पात्रों को वापस लाया गया है और नए पात्रों को पेश किया गया है। रोमांच से न चूकें!`
+                },
+                mrs: {
+                    title: 'मिसेज देखें!',
+                    iframeSrc: 'https://www.2embed.cc/embed/tt27032419',
+                    about: `मिसेज एक मार्मिक ड्रामा फिल्म है जो एक महिला के जीवन के उतार-चढ़ाव को दर्शाती है। यह फिल्म समाज में एक महिला की भूमिका और उसके संघर्षों पर प्रकाश डालती है। सशक्त अभिनय और एक दमदार कहानी के साथ, यह फिल्म दर्शकों को भावुक कर देगी।`
+                }
+            };
+
+            // Function to show the movie player and hide movie list
+            const showMoviePlayer = (movieId) => {
+                const movie = movies[movieId];
+                if (movie) {
+                    moviePlayerTitle.textContent = movie.title;
+                    movieIframe.src = movie.iframeSrc;
+                    movieAboutContent.innerHTML = movie.about; // Use innerHTML for line breaks
+                    allMoviesSection.style.display = 'none';
+                    moviePlayerSection.style.display = 'block';
+                    // Scroll to the top of the movie player section for better UX
+                    moviePlayerSection.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    console.error('Movie not found:', movieId);
+                }
+            };
+
+            // Function to show the movie list and hide movie player
+            const showAllMovies = () => {
+                moviePlayerSection.style.display = 'none';
+                allMoviesSection.style.display = 'block';
+                // Clear iframe src when going back to prevent background audio
+                movieIframe.src = '';
+                // Scroll to the top of the movie list section
+                allMoviesSection.scrollIntoView({ behavior: 'smooth' });
+            };
+
+            // Add event listeners to all "देखें" buttons
+            document.querySelectorAll('.movie-card button').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const movieId = event.target.dataset.movieId;
+                    showMoviePlayer(movieId);
+                });
+            });
+
+            // Event listener for the "Back to Movies" button
+            if (backToMoviesBtn) {
+                backToMoviesBtn.addEventListener('click', showAllMovies);
+            }
+
+            // Initially, ensure only the movie list is visible
+            showAllMovies(); // Call this to set initial state correctly
         });
     </script>
 </body>
