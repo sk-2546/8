@@ -1,402 +1,115 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Watch RRR (2022)</title>
-<meta charset="utf-8">
-<meta name="description" content="">
-<link rel="canonical" href="https://supernova.to/mnk4ep">
-<link href="https://supernova.to/favicon.png" rel='shortcut icon' type="image/x-icon" >
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://supernova.to/xsma.css" type="text/css" rel="stylesheet">
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-    /* Custom styles for the Inter font and general body styling */
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: #1a202c; /* Dark background */
-        color: #e2e8f0; /* Light text color */
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh; /* Ensure body takes full viewport height */
-        margin: 0;
-        padding: 0;
-    }
-    /* Video container styling for positioning play button and spinner */
-    .video-container {
-        position: relative;
-        width: 100%;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width * 100%) */
-        height: 0;
-        overflow: hidden;
-        border-radius: 0.75rem; /* Rounded corners for the container */
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-        background-color: black; /* Background for video container */
-    }
-    .video-container video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 0.75rem; /* Rounded corners for the video player */
-    }
-    /* Play button overlay */
-    .play-button {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(220, 38, 38, 0.8); /* Red with transparency */
-        border-radius: 9999px; /* Fully rounded */
-        padding: 1.5rem;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        z-index: 10; /* Above video */
-    }
-    .play-button:hover {
-        background-color: rgba(220, 38, 38, 1); /* Solid red on hover */
-    }
-    .play-button svg {
-        fill: white;
-        width: 3rem;
-        height: 3rem;
-    }
-    /* Loading spinner */
-    .spinner {
-        border: 4px solid rgba(255, 255, 255, 0.3);
-        border-top: 4px solid #dc2626; /* Red spinner */
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        animation: spin 1s linear infinite;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 10;
-    }
-    @keyframes spin {
-        0% { transform: translate(-50%, -50%) rotate(0deg); }
-        100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-    /* Specific styles for your existing layout elements */
-    #nhed {
-        background-color: #2d3748; /* Darker gray for header */
-        padding: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    #hdfl {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .goj a {
-        color: #e2e8f0;
-        text-decoration: none;
-        font-size: 1.8rem;
-        font-weight: bold;
-    }
-    .seard input {
-        background-color: #4a5568;
-        border: 1px solid #6b7280;
-        border-radius: 0.5rem;
-        padding: 0.5rem 1rem;
-        color: #e2e8f0;
-        width: 250px;
-    }
-    #hdrx {
-        max-width: 1200px;
-        margin: 20px auto;
-        padding: 0 20px;
-    }
-    #wai {
-        color: #a0aec0;
-        font-size: 0.9rem;
-        margin-bottom: 20px;
-    }
-    #wai a {
-        color: #a0aec0;
-        text-decoration: none;
-    }
-    #horfa {
-        background-color: #2d3748;
-        padding: 20px;
-        border-radius: 0.75rem;
-        margin-bottom: 20px;
-    }
-    #lysing {
-        background-color: #2d3748;
-        padding: 20px;
-        border-radius: 0.75rem;
-    }
-    .lxbx {
-        margin-bottom: 20px;
-    }
-    .imrl img {
-        border-radius: 0.5rem;
-        max-width: 150px;
-        height: auto;
-        margin-right: 20px;
-    }
-    .marl h1 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #fff;
-        margin-bottom: 10px;
-    }
-    .date {
-        color: #a0aec0;
-        font-size: 0.9rem;
-        margin-bottom: 10px;
-    }
-    .fimm p {
-        margin-bottom: 10px;
-    }
-    .fimm strong {
-        color: #f87171; /* Corrected to a valid Tailwind red-400 equivalent */
-    }
-    #drl a {
-        display: inline-block;
-        background-color: #dc2626;
-        color: white;
-        padding: 0.75rem 1.5rem;
-        border-radius: 0.5rem;
-        text-decoration: none;
-        margin-right: 10px;
-        margin-bottom: 10px;
-        transition: background-color 0.3s ease;
-    }
-    #drl a:hover {
-        background-color: #ef4444;
-    }
-    footer {
-        background-color: #1a202c;
-        padding: 20px;
-        text-align: center;
-        color: #a0aec0;
-        margin-top: auto; /* Push footer to the bottom */
-    }
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-        #hdfl {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhool Bhulaiyaa 3 - Watch Now</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text color */
+            display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            min-height: 100vh;
         }
-        .seard {
-            margin-top: 10px;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .movie-player-container {
+            position: relative;
             width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .seard input {
+        .movie-player-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            height: 100%;
+            border: 0;
         }
-        .lxbx {
-            flex-direction: column;
-            align-items: center;
-        }
-        .imrl {
-            margin-right: 0;
-            margin-bottom: 20px;
-        }
-        .marl {
-            text-align: center;
-        }
-    }
-</style>
-<script>
-    // Your existing cookie functions
-    function _1set(c,a){new Date,document.cookie=c+"="+a+";path=/;secure;SameSite=Strict"}
-    function _2get(d,a){var b=d+"=",e=document.cookie.split(";");if(a!=e[0])return"";for(var f,g=0;g<e.length;g++){for(f=e[g];" "==f.charAt(0);)f=f.substring(1);if(0==f.indexOf(b))return f.substring(b.length,f.length)}return""}
-    function _3chk(d,a){var b=_2get(d,a);""==b&&_1set(d,a)}
-    _3chk("_0x9dc6a","33a660e063496966f66251");
-</script>
+    </style>
 </head>
-<body>
-<!-- Your existing scripts and structure -->
-<!-- Removed <script type="text/javascript" src="https://www.wootly.ch/netmin.js?..."></script> -->
-<div id="nhed">
-    <div id="hdfl">
-        <div class="goj"><a href="/">Supernova.to</a></div>
-        <div class="seard"><input placeholder="Search..."  type="search" id="shd"></div>
-    </div>
-</div>
-<div id="hdrx">
-    <div id="res"></div>
-    <div id="wai"><a href="https://supernova.to/watch-movies">Movies</a> &rarr; <a href="">RRR (2022)</a></div>
-    <div id="horfa">
-        <!-- Video Player Section - Integrated from previous response -->
-        <div id="vdo" data-page="mnk4ep">
-            <div class="video-container">
-                <video id="fafd" controls>
-                    <!-- IMPORTANT: This video URL is likely expired. Replace with a new, valid URL. -->
-                    <source src="https://web.wootly.ch/source?id=d5f5133e50839a83ded1463b1479104c82d9b303&amp;sig=XMJgxisS_OHJDMbUmNyz2g&amp;expire=1751406278&amp;ofs=11&amp;usr=166643" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <!-- Play Button Overlay -->
-                <div id="playButton" class="play-button">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z"/>
-                    </svg>
+<body class="antialiased">
+    <!-- Header Section -->
+    <header class="bg-gray-800 py-4 shadow-lg">
+        <div class="container flex flex-col sm:flex-row justify-between items-center">
+            <h1 class="text-3xl font-bold text-white mb-2 sm:mb-0">
+                Bhool Bhulaiyaa 3
+            </h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Home</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">About</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Cast</a></li>
+                    <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="flex-grow py-8">
+        <div class="container">
+            <section class="mb-8">
+                <h2 class="text-4xl font-extrabold text-center text-white mb-6">Watch Bhool Bhulaiyaa 3 Now!</h2>
+                <div class="movie-player-container">
+                    <!-- Movie Player Iframe -->
+                    <iframe src="https://www.2embed.cc/embed/tt26932223" width="100%" height="100%" frameborder="0" scrolling="no" allowfullscreen></iframe>
                 </div>
-                <!-- Loading Spinner -->
-                <div id="loadingSpinner" class="spinner hidden"></div>
-            </div>
-            <!-- Error Message Display -->
-            <p id="videoErrorMessage" class="text-red-500 mt-4 text-center hidden"></p>
-        </div>
-        <div id="ilat"><div id="vidcon"><div id="ncon"></div></div></div>
-    </div>
-    <div id="lysing">
-        <div id="alger">
-            <div class="lxbx flex items-start"> <!-- Added flex for poster and details -->
-                <div id="poster" class="imrl"><a href=""><img src="https://md.nebula.to/10227918.jpg" alt="RRR (2022)"></a></div>
-                <div class="marl flex-grow">
-                    <h1>RRR (2022) </h1>
-                    <div class="date">0min <span class="gh">|</span> Action, Drama <span class="gh">|</span> March 2022 <span class="gh">|</span> <a href="https://www.imdb.com/title/tt8178634/">IMDb : -</a></div>
-                    <div class="fimm">
-                        <p>A fictitious story about two legendary revolutionaries and their journey away from home before they started fighting for their country in 1920's.</p>
-                        <p><strong>Director:</strong> S.S. Rajamouli</p>
-                        <p><strong>Cast:</strong> Ram Charan, N.T. Rama Rao Jr., Ajay Devgn, Alia Bhatt, Olivia Morris, Shriya Saran, Ray Stevenson, Alison Doody, Samuthirakani, Chandra Sekhar, Makrand Deshpande, Rajeev Kanakala, Rahul Ramakrishna, Edward Sonnenblick, Varun Buddhadev, Spandan Chaturvedi, Mark Bennington, Ahmareen Anjum</p>
-                    </div>
+                <div class="mt-8 p-6 bg-gray-800 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-white mb-4">About the Movie</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Bhool Bhulaiyaa 3 is the highly anticipated third installment in the popular horror-comedy franchise.
+                        Directed by Anees Bazmee, the film promises to deliver a blend of spine-chilling moments and
+                        hilarious comedy, following the legacy of its predecessors. With a stellar cast and an intriguing
+                        plot, this movie is set to be a blockbuster. Get ready for more mystery, laughter, and scares!
+                    </p>
+                    <p class="text-gray-300 leading-relaxed mt-4">
+                        Starring Kartik Aaryan, Vidya Balan, and Triptii Dimri, the film continues the story with new twists
+                        and turns, bringing back beloved characters and introducing new ones. Don't miss out on the thrill!
+                    </p>
                 </div>
-            </div>
+            </section>
+
+            <section class="mb-8 p-6 bg-gray-800 rounded-xl shadow-lg">
+                <h3 class="text-2xl font-semibold text-white mb-4">Latest News & Updates</h3>
+                <ul class="list-disc list-inside text-gray-300 space-y-2">
+                    <li>Filming for Bhool Bhulaiyaa 3 has officially wrapped up!</li>
+                    <li>The first look poster released, generating massive buzz.</li>
+                    <li>Soundtrack details to be announced soon.</li>
+                    <li>Anticipated release date: Diwali 2025.</li>
+                </ul>
+            </section>
         </div>
-        <div class="lxbx" id="drl">
-            <h1>Direct Links:</h1>
-            <a class="bcg" href="https://supernova.to/go.php?url=Y2J0QlRqc3pMSENLMWF4eVFzNlBFSnpXZmZKUFQrWUtUdWwyTnhXWjAydz0" target="_blank">Wootly <span>HDR</span></a>
-            <a class='bcg' href='https://supernova.to/go.php?url=Um42UkV0K1BWeXh4ZUtPdEl2UmF5Y3lmcWNUVWdkVTZBRFE3c1dYZ3ZOTmRuTDZKQUwrZ2s4dTc0ZlU0V2V3MQ' target='_blank'>Vidsrc </a>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 py-6 mt-auto shadow-inner">
+        <div class="container text-center text-gray-400">
+            <p>&copy; 2025 Bhool Bhulaiyaa 3 Fan Page. All rights reserved.</p>
+            <p class="mt-2">Disclaimer: This site is for entertainment purposes only. The movie content is embedded from external sources.</p>
         </div>
-    </div>
+    </footer>
 
-    <div class="under">
-        <div class="lxbx" id="comment">
-            <div>
-                <h3 class="ch3" id="user">{USR}</h3><hr>
-                <div class="txtdiv"><div class="usrimg"><img src="" alt=""></div><div class="txtContainer"><textarea aria-label="Add a comment" id="post" class="_post" placeholder="Add a comment..." oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'></textarea><div class="_submt"><img id="spn" src="/spn.gif" style="display:none"><input placeholder="Pick a name" type="text" id="_name" value="{USRN}" {USRATT}><button class="_btn" id="btn">Post</button></div></div></div><h3 class="ch3">Comment</h3><hr style="border-bottom:1px solid #ddd">
-                <div id="review"></div>
-            </div>
-        </div>
-
-        <div class="lxbx" id="similar"><div class="dflex" id="cct"></div></div>
-    </div>
-</div>
-<script>
-    // Your existing functions
-    function _(c){return document.getElementById(c)}
-    function _a(c){return document.querySelectorAll(c)}
-    function _b(c,a){return c.getAttribute(a)}
-    var w=window.location.href;
-
-    // Removed gth(), getFrame(), activateButton() as they are replaced by direct video embedding
-
-    addEvent(_("shd"),"input",function(){var d=_("shd").value,a=_("res"),f=new XMLHttpRequest;f.onreadystatechange=function(){4==f.readyState&&200==f.status&&(a.innerHTML=f.responseText)};var c="q="+encodeURIComponent(d);f.open("POST","/xkbc.php",!0),f.setRequestHeader("Content-type","application/x-www-form-urlencoded"),f.send(c)});
-    function addEvent(d,a,e){d.addEventListener?d.addEventListener(a,e,!1):d.attachEvent&&(d["e"+a+e]=e,d[a+e]=function(){d["e"+a+e](window.event)},d.attachEvent("on"+a,d[a+e]))}
-
-    // Your existing echo.init and comment posting functions
-    // Removed window.onload = echo.init(...)
-    function okPost(e,t){var n=_("user"),o=_("_name"),s=_("post"),l=_("review"),a=new XMLHttpRequest;a.onreadystatechange=function(){4==a.readyState&&200==a.status&&(n.innerHTML=t,o.readOnly=!0,o.style.display="none",s.value="",s.setAttribute("style","height:70px;"),l.insertAdjacentHTML("afterbegin",a.responseText)),_("spn").style.display="none"};var r="p="+encodeURIComponent(e)+"&n="+encodeURIComponent(t);a.open("POST","/xkbc.php?sig=XVUc7stV1ZuaSRsACjFEDg&exp=1751414538&addr=45.80.158.167&pid=m227918",!0),a.setRequestHeader("Content-type","application/x-www-form-urlencoded"),a.send(r)}function postIt(){var e=_("_name"),t=_("post").value,n=e.value;""==t.replace(/\s/g,"")||null==t.replace(/\s/g,"")?console.log("no text"):""==n.replace(/\s/g,"")||null==n.replace(/\s/g,"")?(e.style.border="1px solid red",e.placeholder="Name is required!"):(okPost(t,n),e.style.border="1px solid #d3d6db",e.placeholder="Name",_("spn").style.display="inline-block")};addEvent(_("btn"),"click",postIt);
-
-    // New JavaScript for video playback control
-    document.addEventListener('DOMContentLoaded', () => {
-        const videoElement = document.getElementById('fafd');
-        const playButton = document.getElementById('playButton');
-        const loadingSpinner = document.getElementById('loadingSpinner');
-        const videoErrorMessage = document.getElementById('videoErrorMessage');
-
-        // Function to show error message
-        const showErrorMessage = (message) => {
-            videoErrorMessage.textContent = message;
-            videoErrorMessage.classList.remove('hidden');
-        };
-
-        // Function to hide error message
-        const hideErrorMessage = () => {
-            videoErrorMessage.classList.add('hidden');
-        };
-
-        // Show play button initially
-        playButton.classList.remove('hidden');
-
-        // Handle play button click
-        playButton.addEventListener('click', () => {
-            videoElement.play().then(() => {
-                playButton.classList.add('hidden'); // Hide play button on successful play
-                hideErrorMessage(); // Hide any previous error messages
-            }).catch(error => {
-                console.error('Error attempting to play video:', error);
-                showErrorMessage('Could not start video. Please try clicking again or check your browser settings. (Error: ' + error.message + ')');
-                playButton.classList.remove('hidden'); // Keep play button visible if play fails
-            });
+    <script>
+        // Basic JavaScript for any future interactive elements.
+        // Currently, no complex JS is needed for this static page with an iframe.
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Bhool Bhulaiyaa 3 website loaded!');
+            // Example: You could add a simple scroll-to-top button or a dynamic date here.
         });
-
-        // Event listeners for video state
-        videoElement.addEventListener('play', () => {
-            playButton.classList.add('hidden');
-            loadingSpinner.classList.add('hidden');
-            hideErrorMessage();
-        });
-
-        videoElement.addEventListener('pause', () => {
-            playButton.classList.remove('hidden');
-            loadingSpinner.classList.add('hidden');
-        });
-
-        videoElement.addEventListener('ended', () => {
-            playButton.classList.remove('hidden');
-            loadingSpinner.classList.add('hidden');
-        });
-
-        videoElement.addEventListener('waiting', () => {
-            loadingSpinner.classList.remove('hidden');
-        });
-
-        videoElement.addEventListener('playing', () => {
-            loadingSpinner.classList.add('hidden');
-        });
-
-        videoElement.addEventListener('error', (e) => {
-            console.error('Error playing video:', e);
-            loadingSpinner.classList.add('hidden');
-            playButton.classList.remove('hidden'); // Show play button again
-            let message = 'An error occurred while loading the video.';
-            if (videoElement.error) {
-                switch (videoElement.error.code) {
-                    case videoElement.error.MEDIA_ERR_ABORTED:
-                        message = 'Video playback aborted.';
-                        break;
-                    case videoElement.error.MEDIA_ERR_NETWORK:
-                        message = 'Network error: Video download failed.';
-                        break;
-                    case videoElement.error.MEDIA_ERR_DECODE:
-                        message = 'Video decoding error. The video format might not be supported.';
-                        break;
-                    case videoElement.error.MEDIA_ERR_SRC_NOT_SUPPORTED:
-                        message = 'Video source not supported or found.';
-                        break;
-                    default:
-                        message = 'An unknown video error occurred.';
-                        break;
-                }
-            }
-            showErrorMessage(message + ' Please try again later.');
-        });
-
-        // Optional: Log when video is ready to play
-        videoElement.addEventListener('canplaythrough', () => {
-            console.log('Video is ready to play!');
-            // If the video can play, but hasn't started, ensure play button is visible
-            if (videoElement.paused) {
-                playButton.classList.remove('hidden');
-            }
-            loadingSpinner.classList.add('hidden');
-        });
-    });
-</script>
-<footer>
-<div class="pab8"><a href="http://ww1.goojara.to/">Goojara</a> </div>
-<div class="live"><strong class="onstat"> </strong> ONLINE</div>
-</footer>
+    </script>
 </body>
 </html>
+
